@@ -1,0 +1,22 @@
+# Byte-compiled / optimized / DLL files
+target/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.class
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build
+*.jar
+*.war
+*.nar
+
+# Logs
+*.log
