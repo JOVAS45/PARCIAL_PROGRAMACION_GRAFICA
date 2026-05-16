@@ -1,16 +1,19 @@
 # Flappy Bird - Parcial Programación Gráfica
 
-## 📋 Información General
-- **Asignatura**: Programación Gráfica
-- **Proyecto**: Flappy Bird en OpenGL (LWJGL 3.3)
-- **Tipo de Evaluación**: Examen práctico individual con defensa oral
-- **Fecha del Parcial**: 16 de mayo de 2026
-- **Tecnologías**: Java 11+, LWJGL 3.3, OpenGL 3.3 Core Profile, JOML 1.10.5
+## Descripción del Proyecto
 
-## 👨‍💻 Integrantes
-- **Estudiante**: [Tu nombre aquí]
+**Flappy Bird** implementado en Java con **OpenGL 3.3** usando la librería **LWJGL 3.3**. 
 
-## 🎮 Controles
+El juego incluye:
+- Modo dos jugadores simultáneos
+- Física realista de caída y salto
+- Dificultad progresiva según puntuación
+- Interfaz gráfica mejorada con HUD y menús
+- Arquitectura limpia dividida en clases especializadas
+
+**Tecnologías**: Java 11+, LWJGL 3.3, OpenGL 3.3 Core Profile, JOML 1.10.5
+
+## Controles
 
 ### Jugador 1 (Pájaro Amarillo)
 - **ESPACIO**: Saltar
@@ -22,7 +25,7 @@
 - **R**: Reiniciar juego
 - **ESC**: Salir
 
-## 📦 Instalación y Compilación
+## Instalación y Compilación
 
 ### Requisitos Previos
 - **Java JDK 11+**
@@ -45,7 +48,7 @@ java -jar target/flappy-bird-opengl-1.0-SNAPSHOT.jar
 mvn clean package -DskipTests && java -jar target/flappy-bird-opengl-1.0-SNAPSHOT.jar
 ```
 
-## 🏗️ Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 ParcialPG/
@@ -69,93 +72,93 @@ ParcialPG/
 
 ---
 
-## REQUISITOS IMPLEMENTADOS ✅
+## REQUISITOS IMPLEMENTADOS
 
-### 1️⃣ Pájaro Compuesto por Figuras Geométricas (5%)
+### 1. Pájaro Compuesto por Figuras Geométricas (5%)
 
 **Características:**
-- ✅ **Cuerpo principal** - Rectángulo central (25×30)
-- ✅ **Cabeza** - Círculo arriba (15×15)
-- ✅ **Pico** - Triángulo distintivo (rotado con el pájaro)
-- ✅ **Ojo** - Con pupila interior negra
-- ✅ **Ala izquierda** - Animada con movimiento suave (sin fin)
-- ✅ **Cola** - Rectángulo en la parte posterior
-- ✅ **Animación coherente** - Rotación según velocidad vertical
-- ✅ **Sincronización** - Aleteo en tiempo real
+- Cuerpo principal - Rectángulo central (25×30)
+- Cabeza - Círculo arriba (15×15)
+- Pico - Triángulo distintivo (rotado con el pájaro)
+- Ojo - Con pupila interior negra
+- Ala izquierda - Animada con movimiento suave (sin fin)
+- Cola - Rectángulo en la parte posterior
+- Animación coherente - Rotación según velocidad vertical
+- Sincronización - Aleteo en tiempo real
 
 **Archivos:** `Bird.java`, `Renderer.dibujarPajaro()`
 
 ---
 
-### 2️⃣ Modo Dos Jugadores Simultáneos (10%)
+### 2. Modo Dos Jugadores Simultáneos (10%)
 
 **Características:**
-- ✅ **Dos pájaros independientes** - Posición y velocidad separadas
-- ✅ **Controles independientes**
+- Dos pájaros independientes - Posición y velocidad separadas
+- Controles independientes
   - P1: ESPACIO (amarillo)
   - P2: W o ARRIBA (azul)
-- ✅ **Puntajes individuales** - Mostrados en título
-- ✅ **Estado independiente** - Cada uno vivo/muerto por separado
-- ✅ **Tuberías compartidas** - Mismo escenario
-- ✅ **Fin de juego** - Cuando AMBOS mueren
-- ✅ **Colores distintivos** - Fácil identificación
+- Puntajes individuales - Mostrados en título
+- Estado independiente - Cada uno vivo/muerto por separado
+- Tuberías compartidas - Mismo escenario
+- Fin de juego - Cuando AMBOS mueren
+- Colores distintivos - Fácil identificación
 
 **Archivos:** `Game.java`, `Bird.java`, `InputManager.java`
 
 ---
 
-### 3️⃣ Incremento Progresivo de Velocidad (5%)
+### 3. Incremento Progresivo de Velocidad (5%)
 
 **Características:**
-- ✅ **Dificultad escala con puntaje**
+- Dificultad escala con puntaje
   - Base: 4 unidades/frame
   - Máximo: 12 unidades/frame
   - Incremento: +0.5 cada 5 puntos
-- ✅ **Frecuencia de tuberías aumenta** (120 → 80 frames)
-- ✅ **Claramente perceptible** - Cambio gradual
-- ✅ **Límite superior razonable** - Sigue siendo jugable
-- ✅ **Visible en HUD** - Mostrado como "Nivel" y "Vel"
-- ✅ **Cálculo:** Nivel = (velocidad - 4) / 0.5 + 1
+- Frecuencia de tuberías aumenta (120 → 80 frames)
+- Claramente perceptible - Cambio gradual
+- Límite superior razonable - Sigue siendo jugable
+- Visible en HUD - Mostrado como "Nivel" y "Vel"
+- Cálculo: Nivel = (velocidad - 4) / 0.5 + 1
 
 **Archivos:** `Game.actualizarDificultad()`
 
 ---
 
-### 4️⃣ Mejora de Interfaz (5%)
+### 4. Mejora de Interfaz (5%)
 
 **Características:**
-- ✅ **Fondo**: Cielo azul + nubes semitransparentes + suelo verde
-- ✅ **Pantalla de inicio**: Menú con instrucciones claras
-- ✅ **HUD en tiempo real**:
+- Fondo: Cielo azul + nubes semitransparentes + suelo verde
+- Pantalla de inicio: Menú con instrucciones claras
+- HUD en tiempo real:
   - Panel amarillo: Puntaje Jugador 1 (arriba izq)
   - Panel azul: Puntaje Jugador 2 (arriba der)
   - Panel verde: Nivel actual (centro)
-- ✅ **Pantalla de Game Over**: 
+- Pantalla de Game Over: 
   - Título rojo "GAME OVER"
   - Puntajes ambos jugadores
   - Botón REINICIAR (verde) grande
   - Botón ESC (rojo)
-- ✅ **Animaciones**: Aleteo sincronizado
-- ✅ **Sonidos** (javax.sound.sampled):
-  - 🔊 Salto: 440 Hz, 100ms
-  - 🔊 Punto: 880 Hz, 150ms
-  - 🔊 Game Over: 220 Hz, 300ms
-- ✅ **Colores distintivos**: Pájaros amarillo/azul
+- Animaciones: Aleteo sincronizado
+- Sonidos (javax.sound.sampled):
+  - Salto: 440 Hz, 100ms
+  - Punto: 880 Hz, 150ms
+  - Game Over: 220 Hz, 300ms
+- Colores distintivos: Pájaros amarillo/azul
 
 **Archivos:** `Renderer.java`, `SoundManager.java`
 
 ---
 
-### 5️⃣ Calidad de Código (5%)
+### 5. Calidad de Código (5%)
 
 **Características:**
-- ✅ **Arquitectura limpia**: 6 clases especializadas
-- ✅ **Separación de responsabilidades**: Cada clase una función
-- ✅ **Nombres descriptivos**: Variables y métodos claros
-- ✅ **Comentarios**: Español e inglés (Javadoc completo)
-- ✅ **Sin código muerto**: Todo funcional
-- ✅ **Métodos pequeños**: Responsabilidad única
-- ✅ **Fácil de modificar**: Estructura clara para cambios
+- Arquitectura limpia: 6 clases especializadas
+- Separación de responsabilidades: Cada clase una función
+- Nombres descriptivos: Variables y métodos claros
+- Comentarios: Español e inglés (Javadoc completo)
+- Sin código muerto: Todo funcional
+- Métodos pequeños: Responsabilidad única
+- Fácil de modificar: Estructura clara para cambios
 
 **Clases:**
 - `Bird.java` - Pájaro con física y colisiones
@@ -196,51 +199,37 @@ Ventana 800×600 con:
 ## Cambios vs Proyecto Base
 
 ### Refactorización
-- ✅ De código monolítico a 6 clases
-- ✅ Eliminación de clase `Pipe` interna
-- ✅ Separación de OpenGL, entrada y lógica
+- De código monolítico a 6 clases
+- Separación de OpenGL, entrada y lógica
 
 ### Nuevas Características
-- ✅ Pájaro geométrico compuesto
-- ✅ Dos jugadores con controles independientes
-- ✅ Velocidad progresiva automática
-- ✅ Interfaz mejorada (fondo, HUD)
-- ✅ Animación de aleteo
+- Pájaro geométrico compuesto
+- Dos jugadores con controles independientes
+- Velocidad progresiva automática
+- Interfaz mejorada (fondo, HUD)
+- Animación de aleteo
 
 ---
 
 ## Problemas Comunes y Soluciones
 
-### ❌ "Failed to create GLFW window"
-- ✅ Verifica GPU con OpenGL 3.3+
-- ✅ Actualiza drivers
-- ✅ Intenta en otra máquina
+### "Failed to create GLFW window"
+- Verifica GPU con OpenGL 3.3+
+- Actualiza drivers
+- Intenta en otra máquina
 
-### ❌ "Unable to initialize GLFW"
-- ✅ Ejecuta `mvn clean`
-- ✅ Elimina carpeta `target/`
-- ✅ Compila de nuevo
+### "Unable to initialize GLFW"
+- Ejecuta `mvn clean`
+- Elimina carpeta `target/`
+- Compila de nuevo
 
-### ❌ Bajo rendimiento
-- ✅ Cierra otras aplicaciones
-- ✅ Actualiza drivers GPU
-- ✅ Reduce complejidad geométrica
-
----
-
-## Notas para Defensa (16 de mayo)
-
-El código está optimizado para modificaciones rápidas:
-
-| Cambio | Archivo | Método |
-|--------|---------|--------|
-| Cambiar controles | `InputManager.java` | `jugador1Salta()`, `jugador2Salta()` |
-| Modificar física | `Bird.java` | Constantes `GRAVEDAD`, `FUERZA_SALTO` |
-| Agregar figuras al pájaro | `Renderer.java` | `dibujarPajaro()` |
-| Cambiar curva dificultad | `Game.java` | `actualizarDificultad()` |
-| Ajustar velocidad | `Game.java` | `VELOCIDAD_INICIAL`, `VELOCIDAD_MAXIMA` |
+### Bajo rendimiento
+- Cierra otras aplicaciones
+- Actualiza drivers GPU
+- Reduce complejidad geométrica
 
 ---
+
 
 ## Dependencias
 
@@ -250,7 +239,7 @@ El código está optimizado para modificaciones rápidas:
 
 ---
 
-## 🔧 Notas Técnicas
+## Notas Técnicas
 
 ### Pipeline Gráfico
 - **Proyección**: Ortográfica 2D (800×600)
@@ -273,109 +262,4 @@ El código está optimizado para modificaciones rápidas:
 - **Formato**: PCM 16-bit, 44.1 kHz, mono
 - **Generación**: Ondas sinusoidales procedurales con fade-out
 
----
 
-## 📋 Cambios vs Proyecto Base
-
-### Antes (Monolítico)
-- Todo en AppFlappyBird.java
-- Un solo pájaro
-- Velocidad fija
-- Sin sonidos
-- Interfaz mínima
-
-### Después (Refactorizado)
-- ✅ 7 clases especializadas
-- ✅ Dos pájaros con controles independientes
-- ✅ Velocidad progresiva automática
-- ✅ Sistema de sonido completo
-- ✅ Interfaz mejorada (menú, HUD, game over)
-- ✅ Código comentado y bien estructurado
-- ✅ Fácil de modificar en vivo
-
----
-
-## 🎯 Criterios de Evaluación (Puntaje)
-
-| Criterio | Peso | Estado |
-|----------|------|--------|
-| Pájaro geométrico + animación | 5% | ✅ COMPLETO |
-| Dos jugadores con controles | 10% | ✅ COMPLETO |
-| Velocidad progresiva visible | 5% | ✅ COMPLETO |
-| Mejora interfaz + sonidos | 5% | ✅ COMPLETO |
-| Calidad código (clases, nombres, comentarios) | 5% | ✅ COMPLETO |
-| **Solución (Subtotal)** | **30%** | **✅ COMPLETO** |
-| Modificación en vivo (día examen) | 35% | 🔄 EN DEFENSA |
-| Explicación + respuesta a preguntas | 35% | 🔄 EN DEFENSA |
-| **TOTAL** | **100%** | **EN PROGRESO** |
-
----
-
-## 📝 Para la Defensa (16 de mayo)
-
-### Temas Preparados
-1. **Estructura general**: Explicar flujo del bucle principal
-2. **Dos jugadores**: Cómo se mantienen independientes
-3. **Dificultad progresiva**: Fórmulas de velocidad
-4. **Interfaz mejorada**: Renderizado de elementos
-5. **Sonidos**: Generación de ondas sinusoidales
-6. **OpenGL**: Proyección ortográfica y transformadas
-
-### Posibles Modificaciones en Vivo
-- Cambiar control de jugador
-- Alterar física (gravedad, salto)
-- Agregar figura al pájaro
-- Modificar curva de dificultad
-- Ajustar colores o animaciones
-- Modificar sonidos
-
----
-
-## 🚀 Ejecución Rápida
-
-```bash
-# Clonar/abrir proyecto
-cd d:\Projects\ParcialPG
-
-# Compilar (primera vez o después de cambios)
-mvn clean package -DskipTests
-
-# Ejecutar
-java -jar target/flappy-bird-opengl-1.0-SNAPSHOT.jar
-```
-
-**Tiempo estimado:** 45-60 segundos compilación + ejecución inmediata
-
----
-
-## ⚠️ Problemas Conocidos
-
-| Problema | Solución |
-|----------|----------|
-| "Unsupported JNI version" | Solo advertencia, no afecta ejecución |
-| Sin sonido | Verificar salida de audio del sistema |
-| Bajo rendimiento | Reducir VELOCIDAD_MAXIMA en Game.java |
-| Ventana pequeña | Aumentar ANCHO/ALTO en Game.java |
-
----
-
-## 📚 Referencias Técnicas
-
-- **LWJGL 3.3.1**: Java bindings para OpenGL/GLFW/JOML
-- **OpenGL 3.3**: Pipeline gráfico moderno (shaders obligatorios)
-- **JOML**: Matrix4f para proyecciones y transformadas
-- **GLFW**: Creación de ventana y manejo de eventos
-- **javax.sound**: Audio nativo de Java
-
----
-
-## 🎓 Información de Envío
-
-- **Integrantes**: [Tu nombre]
-- **Período**: Programación Gráfica 2026
-- **Defensa**: **16 de mayo de 2026**
-- **Estado**: ✅ **COMPLETADO Y LISTO PARA DEFENSA**
-
----
-
-**Compilado y probado**: 16/05/2026 - Todas las pruebas exitosas ✅
